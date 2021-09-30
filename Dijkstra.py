@@ -40,8 +40,7 @@ class Dijkstra:
 		'''
 		Método estático del algoritmo, recibe los 
 		vertices anteriores, añadidos durante la 
-		búsqueda de la ruta, el vertice inicial
-		y final
+		búsqueda de la ruta, el vertice inicial y final
 		'''
 		ruta = [fin]
  
