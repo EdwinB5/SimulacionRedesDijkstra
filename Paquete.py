@@ -5,11 +5,18 @@ class Paquete:
     '''
     def __init__(self, mensaje, tamaño):
         '''
-        , reciConstructorbe el mensaje y el tamaño de los paquetes
+        Constructor, recibe el mensaje y el tamaño de los paquetes
         (ventana)
         '''
         self.mensaje = mensaje
         self.tamaño = tamaño
+
+    def calcular_peso(self, latencia_segundos):
+        '''
+        Calcula el peso en las aristas, utilizando el tamaño de la ventana
+        y la latencia por cada medio
+        '''
+        return self.tamaño/latencia_segundos
 
     def convertir_paquete(self):
         '''

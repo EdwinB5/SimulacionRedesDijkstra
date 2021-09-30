@@ -34,6 +34,7 @@ if __name__ == '__main__':
     lista_paquetes = paquetes.convertir_paquete()
     print(lista_paquetes)
     print(paquetes.rearmar_paquete(lista_paquetes))
+    print(paquetes.calcular_peso(0.5))
 
     '''
     vertices = ('A', 'B', 'C', 'D', 'E', 'F', 'G')
