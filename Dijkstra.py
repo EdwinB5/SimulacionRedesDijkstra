@@ -20,6 +20,7 @@ class Dijkstra:
 		visitado = {}
 		anteriores = {}
 		paquetes = {n: [] for n in self.vertices}
+		
 		while no_visitado:
 
 			vertice_minimo = min(no_visitado, key=no_visitado.get)
@@ -35,7 +36,7 @@ class Dijkstra:
 			no_visitado.pop(vertice_minimo)
 			if vertice_minimo == fin:
 				paquetes[vertice_minimo].append(mensaje)
-				paquete_entregado = f"{vertice_minimo}:{paquetes[vertice_minimo]}"
+				paquete_entregado = paquetes[vertice_minimo]
 
 		return anteriores, visitado, paquete_entregado
 
