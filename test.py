@@ -35,12 +35,16 @@ def rearmar_paquete(paquetes):
         return mensaje_rearmado
 
 if __name__ == '__main__':
+    '''mensaje = 'hola'
+                tamaño = 2
+                lista = convertir_paquete(mensaje, tamaño)
+                texto_rearmado = rearmar_paquete(lista)
+                print(f'La lista es {lista}')
+                print(f'El mensaje rearmado es: {texto_rearmado}')'''
     mensaje = 'hola'
-    tamaño = 2
-    lista = convertir_paquete(mensaje, tamaño)
-    texto_rearmado = rearmar_paquete(lista)
-    print(f'La lista es {lista}')
-    print(f'El mensaje rearmado es: {texto_rearmado}')
+    contenido = [1, '']
+    contenido[1] += mensaje
+    print(contenido)
 
     
 

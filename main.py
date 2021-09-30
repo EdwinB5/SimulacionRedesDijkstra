@@ -28,16 +28,16 @@ def leer_mensaje():
 
 
 if __name__ == '__main__':
-    mensaje = 'Holas'
-    tamaño = 2
-    paquetes = Paquete(mensaje, tamaño)
-    lista_paquetes = paquetes.convertir_paquete()
-    print(lista_paquetes)
-    print(paquetes.rearmar_paquete(lista_paquetes))
-    print(paquetes.calcular_peso(0.5))
+    '''mensaje = 'Holas'
+                tamaño = 2
+                paquetes = Paquete(mensaje, tamaño)
+                lista_paquetes = paquetes.convertir_paquete()
+                print(lista_paquetes)
+                print(paquetes.rearmar_paquete(lista_paquetes))
+                print(paquetes.calcular_peso(0.5))'''
 
-    '''
-    vertices = ('A', 'B', 'C', 'D', 'E', 'F', 'G')
+    
+    vertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
     grafo = {
         'A': {'B': 5, 'E': 3, 'F': 18},
         'B': {'A': 5, 'C': 1, 'D': 3},
@@ -50,10 +50,12 @@ if __name__ == '__main__':
     vertice_inicio, vertice_fin = leer_entrada(vertices)
 
     dijkstra = Dijkstra(vertices, grafo) #Instancia dijkstra
-    ant, vist = dijkstra.buscar_ruta(vertice_inicio, vertice_fin)
+    ant, vist, paquete = dijkstra.buscar_ruta(vertice_inicio, vertice_fin, 'hola')
     print(f'La distancia entre {vertice_inicio} a {vertice_fin} es: {vist[vertice_fin]}')
     ruta = dijkstra.generar_ruta(ant, vertice_inicio, vertice_fin)
     print(f'La ruta de {vertice_inicio} a {vertice_fin} es:', ' -> '.join(ruta))
-    '''
+    print(paquete)
+    #print(dijkstra.grafo)
+    
     
     

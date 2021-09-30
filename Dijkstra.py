@@ -10,7 +10,7 @@ class Dijkstra:
 		self.vertices = vertices
 		self.grafo = grafo
 
-	def buscar_ruta(self, inicio, fin):
+	def buscar_ruta(self, inicio, fin, mensaje):
 		'''
 		Busca la ruta según los vertices introducidos,
 		haciendo un recorrido por todo el grafo
@@ -19,11 +19,14 @@ class Dijkstra:
 		no_visitado[inicio] = 0
 		visitado = {}
 		anteriores = {}
+		paquetes = {n: '' for n in self.vertices}
 		while no_visitado:
+
 			vertice_minimo = min(no_visitado, key=no_visitado.get)
 			for anterior, contenido in self.grafo.get(vertice_minimo, {}).items():
 				if anterior in visitado:
 					continue
+				# print(self.grafo[vertice_minimo].get(anterior, float('inf')))
 				distancia = no_visitado[vertice_minimo] + self.grafo[vertice_minimo].get(anterior, float('inf'))
 				if distancia < no_visitado[anterior]:
 					no_visitado[anterior] = distancia
@@ -31,9 +34,10 @@ class Dijkstra:
 			visitado[vertice_minimo] = no_visitado[vertice_minimo]
 			no_visitado.pop(vertice_minimo)
 			if vertice_minimo == fin:
-				break
+				paquetes[vertice_minimo] += mensaje
+				paquete_entregado = f"{vertice_minimo}:{paquetes[vertice_minimo]}"
 
-		return anteriores, visitado
+		return anteriores, visitado, paquete_entregado
 
 	@staticmethod
 	def generar_ruta(anteriores, inicio, fin):
