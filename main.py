@@ -1,28 +1,7 @@
 from Dijkstra import Dijkstra
 from Paquete import Paquete
 from Entrada import leer_entrada, leer_mensaje
-from random import randrange
-
-def calcular_peso(tamaño, latencia_segundos):
-    '''
-    Calcula el peso en las aristas, utilizando el tamaño de la ventana
-    y la latencia por cada medio
-    '''
-    return round(tamaño/latencia_segundos, 3)
-
-def peso_nodo(vertices, tamaño):
-    '''
-    Esta función permite calcular el peso en cada arista a partir de 
-    la formula, para calcular la banda ancha utilizando la función 
-    creada, calcular_peso.
-    '''
-    pesos = []
-    for i in range(9):
-        latencia = randrange(1,59)
-        valor_peso = calcular_peso(tamaño, latencia)
-        pesos.append(valor_peso)
-
-    return pesos
+from Operacion import peso_nodo
     
 if __name__ == '__main__':
     vertices = ('A', 'B', 'C', 'D', 'E', 'F', 'G')
@@ -40,7 +19,7 @@ if __name__ == '__main__':
 
     # Envio de paquetes
     for paquete in lista_paquetes:
-        x = peso_nodo(vertices, tamaño)
+        x = peso_nodo(tamaño)
 
         grafo = {
         'A': {'B': x[0], 'E': x[1], 'F': x[2]},
