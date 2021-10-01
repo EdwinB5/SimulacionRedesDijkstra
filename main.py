@@ -8,7 +8,7 @@ def calcular_peso(tamaño, latencia_segundos):
     Calcula el peso en las aristas, utilizando el tamaño de la ventana
     y la latencia por cada medio
     '''
-    return round(tamaño/latencia_segundos, 2)
+    return round(tamaño/latencia_segundos, 3)
 
 def peso_nodo(vertices, tamaño):
     '''
@@ -17,14 +17,15 @@ def peso_nodo(vertices, tamaño):
     creada, calcular_peso.
     '''
     pesos = []
-    for vertice in vertices:
-        valor_peso = calcular_peso(tamaño, randrange(1,20))
+    for i in range(9):
+        latencia = randrange(1,59)
+        valor_peso = calcular_peso(tamaño, latencia)
         pesos.append(valor_peso)
 
     return pesos
     
 if __name__ == '__main__':
-    vertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+    vertices = ('A', 'B', 'C', 'D', 'E', 'F', 'G')
     num_paquete = 1
 
     # Recibir valores del usuario
@@ -39,17 +40,16 @@ if __name__ == '__main__':
 
     # Envio de paquetes
     for paquete in lista_paquetes:
-        # A[0], B[1], C[2], D[3], E[4], F[5], G[6]
         x = peso_nodo(vertices, tamaño)
 
         grafo = {
-        'A': {'B': x[1], 'E': x[4], 'F': x[5]},
-        'B': {'A': x[0], 'C': x[2], 'D': x[3]},
-        'C': {'B': x[1], 'G': x[6]},
-        'D': {'B': x[1], 'E': x[4]},
-        'E': {'D': x[3], 'G': x[6], 'A': x[0]},
-        'F': {'A': x[0], 'G': x[6]},
-        'G': {'E': x[4], 'C': x[2], 'F': x[5]}
+        'A': {'B': x[0], 'E': x[1], 'F': x[2]},
+        'B': {'A': x[0], 'C': x[3], 'D': x[4]},
+        'C': {'B': x[3], 'G': x[7]},
+        'D': {'B': x[4], 'E': x[5]},
+        'E': {'D': x[5], 'G': x[6], 'A': x[1]},
+        'F': {'A': x[2], 'G': x[8]},
+        'G': {'E': x[6], 'C': x[7], 'F': x[8]}
         }
 
         # Instanciar clase Dijkstra
@@ -67,6 +67,7 @@ if __name__ == '__main__':
         paquetes_recibidos.extend(paquete)
         print('-'*60)
         num_paquete += 1
+        #print(dijkstra.grafo)
 
     # Imprimir reensamble del mensaje
     print('#'*60)
