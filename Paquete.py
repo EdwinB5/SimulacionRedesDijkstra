@@ -11,13 +11,6 @@ class Paquete:
         self.mensaje = mensaje
         self.tamaño = tamaño
 
-    def calcular_peso(self, latencia_segundos):
-        '''
-        Calcula el peso en las aristas, utilizando el tamaño de la ventana
-        y la latencia por cada medio
-        '''
-        return self.tamaño/latencia_segundos
-
     def convertir_paquete(self):
         '''
         Con el mensaje, lo divide y almacena en un arreglo en
