@@ -40,7 +40,7 @@ if __name__ == '__main__':
         print(f'- Contenido del paquete: {paquete}')
         print('-'*60)
         ant, vist, paquete = dijkstra.buscar_ruta(vertice_inicio, vertice_fin, paquete)
-        print(f'- La distancia entre {vertice_inicio} a {vertice_fin} es: {vist[vertice_fin]}')
+        print(f'- La distancia (latencia) entre {vertice_inicio} a {vertice_fin} es: {vist[vertice_fin]}')
         ruta = dijkstra.generar_ruta(ant, vertice_inicio, vertice_fin)
         print(f'- La ruta de {vertice_inicio} a {vertice_fin} es:', ' -> '.join(ruta))
         paquetes_recibidos.extend(paquete)
